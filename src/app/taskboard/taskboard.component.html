@@ -1,4 +1,4 @@
-<ng-scrollbar>
+<ng-scrollbar shown="hover">
   <div *ngFor="let day of days">
     <p class="sort-card date-content"><span class="day-label">{{ getLabel(day.date) }} <span class="day-separator" *ngIf="getLabel(day.date) !== null"> | </span></span>{{day.date | date:'d MMMM yyyy'}}</p>
     <div>
