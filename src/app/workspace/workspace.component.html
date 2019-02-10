@@ -1,18 +1,20 @@
 <div class="workspace">
   <div class="operation-section">
-    <p>All</p>
-    <p>Today</p>
-    <p>Previous</p>
-    <p>Finished</p>
-    <p>Not Finished</p>
-    <p>Pinned</p>
-    <hr>
-    <p>Work</p>
-    <p>Buisness</p>
-    <p>Personal</p>
+    <mat-card >
+        <p class="menu-item selected-menu-item"> <span> <i class="fa fa-th-large menu-icon menu-icon-selected" aria-hidden="true"></i></span> All</p>
+        <p class="menu-item"> <span ><i class="fa fa-calendar menu-icon" aria-hidden="true"></i></span> Today</p>
+        <p class="menu-item"> <span> <i class="fa fa-check-square menu-icon" aria-hidden="true"></i> </span> Complete</p>
+        <p class="menu-item"> <span> <i class="fa fa-minus-square menu-icon" aria-hidden="true"></i></span> Incomplete</p>
+    </mat-card>
+    <mat-card >
+        <p class="menu-item menu-margin"> <span class="circle-work">&#9675;</span> Work</p>
+        <p class="menu-item menu-margin"> <span class="circle-buisness">&#9675;</span> Buisness</p>
+        <p class="menu-item menu-margin"> <span class="circle-personal">&#9675;</span> Personal</p>
+    </mat-card>
+   
   </div>
   <div class="task-section">
-    <app-taskboard></app-taskboard>
+    <app-taskboard [days]="days"></app-taskboard>
   </div>
   <div class="view-section">right bar</div>
 </div>

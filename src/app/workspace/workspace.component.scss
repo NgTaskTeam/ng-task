@@ -19,3 +19,47 @@
 .view-section {
     width: 35%;
 }
+
+.menu-item {
+    color: #a3a3a3 !important;
+    font-size: 13px;
+}
+
+.selected-menu-item {
+    font-weight: 700;
+    color: #24243d !important;
+}
+
+hr {
+    border-top: 1px solid #bbb;
+}
+
+.menu-icon {
+    margin-right: 5px;
+    color: #a3a3a3 !important;
+}
+
+.menu-icon-selected {
+    margin-right: 5px;
+    color: #24243d !important;
+}
+
+.circle-work {
+    font-size: 18px;
+    color: rgb(61, 210, 247) !important;
+}
+
+.circle-buisness {
+    font-size: 18px;
+    color: rgb(84, 109, 244) !important;
+}
+
+.circle-personal {
+    font-size: 18px;
+    color: rgb(162, 86, 249) !important;
+}
+
+.menu-margin {
+    margin-top: 7.5px;
+    margin-bottom: 5.5px;
+}
