@@ -3,6 +3,9 @@
     min-height: 90vh;
     display: flex;
     overflow: hidden;
+    * {
+        color: rgb(36,36, 61);   
+    }
 }
 
 .task-section {

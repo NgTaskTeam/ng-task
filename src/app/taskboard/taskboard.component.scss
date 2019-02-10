@@ -4,7 +4,7 @@
     position: relative;
     top: 26px;
     font-size: 18px;
-}
+};
 
 .taskboard {
     display: flex !important;
@@ -16,6 +16,75 @@
     .mat-card {
         flex: 1 0 calc(40% - 20px);
         margin: 5px;
-        height: 130px;
-    }
+        min-height: 130px;
+    };
+};
+
+.day-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(36,36, 61);
+};
+
+.day-separator {
+    font-weight: 100;
+    color: rgb(163,163,163);
+};
+
+.date-content {
+    color: rgb(163,163,163);
+    font-size: 13px;
+};
+
+.round-frame {
+    height: 29px;
+    width: 29px;
+    border-radius: 57px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+};
+
+.task-type {
+    text-transform: uppercase;
+    font-weight: 700;
+};
+
+.time {
+    font-size: 12px;
+    color: rgb(36,36, 61);
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: rgb(36,36, 61);
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: rgb(36,36, 61);
+};
+
+.content {
+    margin: 0;
+    font-size: 12px;
+    color: rgb(36,36, 61);
+};
+
+.work-task {
+    color: rgb(61, 210, 247);
+};
+
+.buisness-task {
+    color: rgb(84, 109, 244);
+};
+
+.personal-task {
+    color: rgb(162, 86, 249);
 }

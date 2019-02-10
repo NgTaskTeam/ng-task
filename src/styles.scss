@@ -82,8 +82,35 @@ $dark-theme:   mat-custom-theme($dark-primary, $dark-accent, $dark-warn);
 .unicorn-dark-theme {
   @include angular-material-theme($dark-theme);
   .selected-mat-card {
-      color: #fff;
+      color: #fff !important;
       background: map_get($custom-green, 50);
+      .work-task {      
+        color: #fff !important;
+      };
+      
+      .buisness-task {
+        color: #fff !important;
+      };
+      
+      .personal-task {
+        color: #fff !important;
+      }
+
+      .time {
+        color: #fff !important;
+      }
+      
+      .title {
+        color: #fff !important;
+      }
+      
+      .subtitle {
+        color: #fff !important;
+      };
+      
+      .content {
+        color: #fff !important;
+      };
   };
   .mat-card {
     margin: 20px;
@@ -92,10 +119,5 @@ $dark-theme:   mat-custom-theme($dark-primary, $dark-accent, $dark-warn);
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-// .ng-scroll-view {
-//   display: flex !important;
-//   flex-flow: row wrap;
-//   align-content: space-around;
-// }

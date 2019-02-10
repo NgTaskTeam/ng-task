@@ -1,12 +1,19 @@
 <ng-scrollbar>
   <div *ngFor="let day of days">
-    <p class="sort-card"><span>{{ getLabel(day.date) }} <span *ngIf="getLabel(day.date) !== null"> | </span></span>{{day.date | date:'d MMMM yyyy'}}</p>
+    <p class="sort-card date-content"><span class="day-label">{{ getLabel(day.date) }} <span class="day-separator" *ngIf="getLabel(day.date) !== null"> | </span></span>{{day.date | date:'d MMMM yyyy'}}</p>
     <div>
         <div class="taskboard" [sortablejs]="day.tasks" [sortablejsOptions]="normalOptions">
-            <mat-card *ngFor="let task of day.tasks; let index = index" [ngClass]="{'selected-mat-card': task.tittle === selected}">
-                <mat-card-title>{{task.tittle}}</mat-card-title>
-                <mat-card-content>{{task.content}}</mat-card-content>
-                <mat-card-content>{{task.content}}</mat-card-content>
+            <mat-card *ngFor="let task of day.tasks; let index = index" [ngClass]="{'selected-mat-card': task.title === selected}">
+                <div class="round-frame" [ngClass]="{'work-task': task.type === 'W', 'buisness-task': task.type === 'B', 'personal-task': task.type === 'P'}">
+                  <span class="task-type">{{task.type}}</span>
+                </div>
+
+                <div>
+                  <span class="time">{{task.time}}</span>
+                  <p class="title">{{task.title}}</p>
+                  <p class="subtitle">{{task.subtitle}}</p>
+                  <p class="content">{{task.content}}</p>
+                </div>
             </mat-card>
         </div>
     </div>
