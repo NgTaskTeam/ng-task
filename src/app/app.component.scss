@@ -1,18 +1,4 @@
 .wrapper {
     height: 100vh;
     background: rgb(242, 242, 242);
-
-    .workspace {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: space-around;
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 40px;
-        .mat-card {
-            flex: 1 0 calc(40% - 20px);
-            margin: 5px;
-            height: 130px;
-        }
-    }
 }

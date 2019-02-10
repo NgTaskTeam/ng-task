@@ -1,0 +1,18 @@
+.workspace {
+    max-height: 90vh;
+    min-height: 90vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.task-section {
+    width: 45%;
+}
+
+.operation-section {
+    width: 20%;
+}
+
+.view-section {
+    width: 35%;
+}
