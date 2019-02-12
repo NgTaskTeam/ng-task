@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
+import { MeetingsComponent } from './meetings/meetings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkspaceComponent,
-    TaskboardComponent
+    TaskboardComponent,
+    MeetingsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import { TaskboardComponent } from './taskboard/taskboard.component';
     SortablejsModule.forRoot({
       animation: 150,
     }),
-    NgScrollbarModule,
+    NgScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,5 +16,7 @@
   <div class="task-section">
     <app-taskboard [days]="days"></app-taskboard>
   </div>
-  <div class="view-section">right bar</div>
+  <div class="view-section">
+    <app-meetings [meetings]="days[0].meetings"></app-meetings>
+  </div>
 </div>

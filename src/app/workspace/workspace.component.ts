@@ -20,6 +20,20 @@ export class WorkspaceComponent implements OnInit {
           people: ['some@random.mail'],
         },
         {
+          name: 'The second',
+          type: 'sheduled',
+          time: '10:00am',
+          desc: 'Some random meeting',
+          people: ['some@random.mail'],
+        },
+        {
+          name: 'The third',
+          type: 'sheduled',
+          time: '11:00am',
+          desc: 'Some random meeting',
+          people: ['some@random.mail'],
+        },
+        {
           name: 'New meting',
           type: 'cancelled',
           time: '9:00am',

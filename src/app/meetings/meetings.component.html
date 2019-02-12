@@ -1,0 +1,52 @@
+<div class="sort-card">
+  <p class="date-content">
+    <span class="day-label">Meetings</span>
+  </p>
+  <div>
+    <div>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Scheduled Meetings ({{ filterMeetings("sheduled").length }})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="meeting-container">
+            <!-- <ng-scrollbar class="meetings-wrapper" shown="hover" trackX="false" trackY="true"> -->
+              <div class="meetings-wrapper">
+                <mat-card *ngFor="let meeting of filterMeetings('sheduled'); let index = index" class="meeting-card">
+                  <div>
+                    <div class="round-frame" [ngClass]="{'work-task': meeting.type === 'W', 'buisness-task': meeting.type === 'B', 'personal-task': meeting.type === 'P'}">
+                      <span class="task-type">S</span>
+                    </div>
+                    <span class="time">{{meeting.time}}</span>
+
+                    <p class="title">{{meeting.name}}</p>
+                    <p class="content">{{meeting.desc}}</p>
+                    <p class="content">{{meeting.people}}</p>
+                  </div>
+                </mat-card>
+              </div>
+            <!-- </ng-scrollbar> -->
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Rescheduled Meetings ({{ filterMeetings("resheduled").length }})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Cancelled Meetings ({{ filterMeetings("cancelled").length }})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

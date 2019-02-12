@@ -116,6 +116,15 @@ $dark-theme:   mat-custom-theme($dark-primary, $dark-accent, $dark-warn);
   .mat-card {
     margin: 20px;
   };
+
+  .mat-expansion-panel-body {
+    padding: 0px 11px 16px;
+    background: rgb(242,242,242);
+  }
+
+  .mat-expansion-panel-header-title {
+    color: rgb(36,36, 61);
+  }
 }
 
 body {
