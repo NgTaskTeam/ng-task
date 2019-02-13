@@ -63,3 +63,31 @@ hr {
     margin-top: 7.5px;
     margin-bottom: 5.5px;
 }
+
+.search-wrapper {
+    position: absolute;
+    top: 13px;
+    margin: 0 auto;
+    width: 62%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    input {
+        border: 1px solid #ebedf7;
+        background: #ebedf7;
+        padding: 9px;
+        width: 46%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        color: #aeafb4;
+        padding-left: 31px;
+    }
+
+    i {
+        position: relative;
+        color: #aeafb4;
+        left: 25px;
+    }
+}

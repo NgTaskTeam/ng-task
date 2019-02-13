@@ -7,7 +7,9 @@ import * as moment from 'moment-timezone';
   templateUrl: './workspace.component.html',
   styleUrls: ['./workspace.component.scss']
 })
+
 export class WorkspaceComponent implements OnInit {
+
   days = [
     {
       date: moment().format('YYYY-MM-DD'),
