@@ -17,6 +17,10 @@
     <app-taskboard [days]="days"></app-taskboard>
   </div>
   <div class="view-section">
-    <app-meetings [meetings]="days[0].meetings"></app-meetings>
+    <app-meetings
+      [scheduled]="days[0].meetings.scheduled"
+      [rescheduled]="days[0].meetings.rescheduled"
+      [cancelled]="days[0].meetings.cancelled"
+      ></app-meetings>
   </div>
 </div>

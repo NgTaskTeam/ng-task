@@ -7,16 +7,13 @@ import { Input } from '@angular/core';
   styleUrls: ['./meetings.component.scss']
 })
 export class MeetingsComponent implements OnInit {
-  @Input() meetings: any;
+  @Input() scheduled: any;
+  @Input() rescheduled: any;
+  @Input() cancelled: any;
   panelOpenState = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  filterMeetings(criteria: string): number {
-    return this.meetings.filter(m => m.type === criteria);
-  }
-
 }

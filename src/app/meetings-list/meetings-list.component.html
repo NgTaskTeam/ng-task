@@ -1,0 +1,16 @@
+<ng-scrollbar class="meetings-wrapper" shown="hover" trackX="false" trackY="true">
+  <div class="meetings-wrapper">
+    <mat-card *ngFor="let meeting of list; let index = index" class="meeting-card">
+      <div>
+        <div class="round-frame" [ngClass]="{'work-task': meeting.type === 'W', 'buisness-task': meeting.type === 'B', 'personal-task': meeting.type === 'P'}">
+          <span class="task-type">S</span>
+        </div>
+        <span class="time">{{meeting.time}}</span>
+
+        <p class="title">{{meeting.name}}</p>
+        <p class="content">{{meeting.desc}}</p>
+        <p class="content">{{meeting.people}}</p>
+      </div>
+    </mat-card>
+  </div>
+</ng-scrollbar>

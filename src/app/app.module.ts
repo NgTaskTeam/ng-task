@@ -10,13 +10,15 @@ import { MaterialModule } from './material.module';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { MeetingsComponent } from './meetings/meetings.component';
+import { MeetingsListComponent } from './meetings-list/meetings-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkspaceComponent,
     TaskboardComponent,
-    MeetingsComponent
+    MeetingsComponent,
+    MeetingsListComponent
   ],
   imports: [
     BrowserModule,
