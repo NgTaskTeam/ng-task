@@ -11,44 +11,6 @@ export class WorkspaceComponent implements OnInit {
   days = [
     {
       date: moment().format('YYYY-MM-DD'),
-      meetings: {
-        scheduled: [
-          {
-            name: 'The meting',
-            time: '9:00am',
-            desc: 'Some random meeting',
-            people: ['some@random.mail'],
-          },
-          {
-            name: 'The second',
-            time: '10:00am',
-            desc: 'Some random meeting',
-            people: ['some@random.mail'],
-          },
-          {
-            name: 'The third',
-            time: '11:00am',
-            desc: 'Some random meeting',
-            people: ['some@random.mail'],
-          },
-        ],
-        rescheduled: [
-          {
-            name: 'New meting',
-            time: '11:00am',
-            desc: 'Second random meeting',
-            people: ['second@random.mail'],
-          }
-        ],
-        cancelled: [
-          {
-            name: 'New meting',
-            time: '9:00am',
-            desc: 'Some random meeting',
-            people: ['some@random.mail'],
-          },
-        ],
-      },
       tasks: [{
         type: 'W',
         isFinished: false,
@@ -121,6 +83,51 @@ export class WorkspaceComponent implements OnInit {
       }]
     },
   ].filter(t => moment(t.date).format('YYYY-MM-DD') >= moment().format('YYYY-MM-DD'));
+
+  meetings = {
+    scheduled: [
+      {
+        date: moment().format('YYYY-MM-DD'),
+        name: 'The meting',
+        time: '9:00am',
+        desc: 'Some random meeting',
+        people: ['some@random.mail'],
+      },
+      {
+        date: moment().format('YYYY-MM-DD'),
+        name: 'The second',
+        time: '10:00am',
+        desc: 'Some random meeting',
+        people: ['some@random.mail'],
+      },
+      {
+        date: moment().format('YYYY-MM-DD'),
+        name: 'The third',
+        time: '11:00am',
+        desc: 'Some random meeting',
+        people: ['some@random.mail'],
+      }
+    ].filter(t => moment(t.date).format('YYYY-MM-DD') >= moment().format('YYYY-MM-DD')),
+    rescheduled: [
+      {
+        date: moment().format('YYYY-MM-DD'),
+        name: 'New meting',
+        time: '11:00am',
+        desc: 'Second random meeting',
+        people: ['second@random.mail'],
+      }
+    ].filter(t => moment(t.date).format('YYYY-MM-DD') >= moment().format('YYYY-MM-DD')),
+    cancelled: [
+      {
+        date: moment().format('YYYY-MM-DD'),
+        name: 'New meting',
+        time: '9:00am',
+        desc: 'Some random meeting',
+        people: ['some@random.mail'],
+      }
+    ].filter(t => moment(t.date).format('YYYY-MM-DD') >= moment().format('YYYY-MM-DD')),
+  };
+
   constructor() { }
 
   ngOnInit() {
