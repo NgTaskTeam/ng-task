@@ -24,6 +24,7 @@
 .menu-item {
     color: #a3a3a3 !important;
     font-size: 13px;
+    cursor: pointer;
 }
 
 .selected-menu-item {
@@ -43,6 +44,11 @@ hr {
 .menu-icon-selected {
     margin-right: 5px;
     color: #24243d !important;
+}
+
+.circle-all {
+    font-size: 18px;
+    color: rgb(33,165,152) !important;
 }
 
 .circle-work {

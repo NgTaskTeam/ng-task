@@ -11,7 +11,8 @@ import { WorkspaceComponent } from './workspace/workspace.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { MeetingsListComponent } from './meetings-list/meetings-list.component';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     SortablejsModule.forRoot({
       animation: 150,
     }),
-    NgScrollbarModule
+    NgScrollbarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

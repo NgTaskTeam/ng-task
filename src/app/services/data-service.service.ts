@@ -142,18 +142,27 @@ export class DataServiceService {
   }
 
   addTasks(task: any) {
-    const allTasks = this.tasks.value;
-    // TODO: mutate all tasks and add the new task
+    const parsedTask = { ...task, date: moment(task.date).format('YYYY-MM-DD'), isFinished: false};
+    const date = parsedTask.date;
+    delete parsedTask.date;
+    const allTasks = [ ...this.tasks.value ];
+    const findIndex = allTasks.findIndex(t => moment(t.date).format('YYYY-MM-DD') === date);
+    
+    if (findIndex !== -1) {
+      allTasks[findIndex].tasks.push(parsedTask);
+    } else {
+      allTasks.push({
+        date,
+        tasks: [
+          parsedTask
+        ],
+      });
+    }
+
     this.tasks.next(allTasks);
   }
 
   getMeetings() {
     return this.meetings.asObservable();
-  }
-
-  addMeetings(meeting: any) {
-    const allMeetings = this.meetings.value;
-    // TODO: mutate all meetings and add the new meeting
-    this.meetings.next(allMeetings);
   }
 }

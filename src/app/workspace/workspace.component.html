@@ -8,29 +8,31 @@
 <div class="workspace">
   <div class="operation-section">
     <mat-card>
-      <p class="menu-item selected-menu-item">
+      <p (click)="changeFilters('all')" class="menu-item" [ngClass]="{'selected-menu-item': chechSelectedFilter('all')}">
         <span>
-          <i class="fa fa-th-large menu-icon menu-icon-selected" aria-hidden="true"></i>
-        </span> All</p>
-      <p class="menu-item">
+          <i class="fa fa-th-large menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('all')}"></i>
+        </span> All days</p>
+      <p (click)="changeFilters('today')" class="menu-item" [ngClass]="{'selected-menu-item': chechSelectedFilter('today')}">
         <span>
-          <i class="fa fa-calendar menu-icon" aria-hidden="true"></i>
+          <i class="fa fa-calendar menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('today')}"></i>
         </span> Today</p>
-      <p class="menu-item">
+      <p (click)="changeFilters('finished')" class="menu-item" [ngClass]="{'selected-menu-item': chechSelectedFilter('finished')}">
         <span>
-          <i class="fa fa-check-square menu-icon" aria-hidden="true"></i>
+          <i class="fa fa-check-square menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('finished')}"></i>
         </span> Complete</p>
-      <p class="menu-item">
+      <p (click)="changeFilters('not-finished')" class="menu-item"  [ngClass]="{'selected-menu-item': chechSelectedFilter('not-finished')}">
         <span>
-          <i class="fa fa-minus-square menu-icon" aria-hidden="true"></i>
+          <i class="fa fa-minus-square menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('not-finished')}"></i>
         </span> Incomplete</p>
     </mat-card>
     <mat-card>
-      <p class="menu-item menu-margin">
+      <p (click)="changeFilters('all-type')" class="menu-item menu-margin" [ngClass]="{'selected-menu-item': chechSelectedFilter('all-type')}">
+        <span class="circle-all">&#9675;</span> All</p>
+      <p (click)="changeFilters('work')" class="menu-item menu-margin" [ngClass]="{'selected-menu-item': chechSelectedFilter('work')}">
         <span class="circle-work">&#9675;</span> Work</p>
-      <p class="menu-item menu-margin">
+      <p (click)="changeFilters('buisness')" class="menu-item menu-margin" [ngClass]="{'selected-menu-item': chechSelectedFilter('buisness')}">
         <span class="circle-buisness">&#9675;</span> Buisness</p>
-      <p class="menu-item menu-margin">
+      <p (click)="changeFilters('personal')" class="menu-item menu-margin" [ngClass]="{'selected-menu-item': chechSelectedFilter('personal')}">
         <span class="circle-personal">&#9675;</span> Personal</p>
     </mat-card>
 
@@ -49,43 +51,45 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="example-container">
-        <div class="half-input">
-          <mat-form-field>
-            <input readonly matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-
-          <mat-form-field class="second-input">
-            <input matInput [ngxTimepicker]="time" placeholder="Time">
-            <ngx-material-timepicker #time></ngx-material-timepicker>
-          </mat-form-field>
-        </div>
-
-        <div class="half-input">
-          <mat-form-field>
-            <input matInput placeholder="Title">
-          </mat-form-field>
-
-          <mat-form-field class="second-input">
-            <mat-select placeholder="Type">
-              <mat-option value="W">Work</mat-option>
-              <mat-option value="B">Buisness</mat-option>
-              <mat-option value="P">Personal</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field>
-            <textarea rows="4" matInput placeholder="Content"></textarea>
-          </mat-form-field>
-        </div>
-
-        <div class="actions">
-            <button mat-button>Clear</button>
-            <button mat-raised-button color="primary">Add</button>
-        </div>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+            <div class="half-input">
+                <mat-form-field>
+                  <input formControlName="date" readonly matInput [matDatepicker]="picker" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+      
+                <mat-form-field class="second-input">
+                  <input formControlName="time" matInput [ngxTimepicker]="time" placeholder="Time">
+                  <ngx-material-timepicker #time></ngx-material-timepicker>
+                </mat-form-field>
+              </div>
+      
+              <div class="half-input">
+                <mat-form-field>
+                  <input formControlName="title" matInput placeholder="Title">
+                </mat-form-field>
+      
+                <mat-form-field class="second-input">
+                  <mat-select formControlName="type" placeholder="Type">
+                    <mat-option value="W">Work</mat-option>
+                    <mat-option value="B">Buisness</mat-option>
+                    <mat-option value="P">Personal</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+      
+              <div>
+                <mat-form-field>
+                  <textarea formControlName="content" rows="4" matInput placeholder="Content"></textarea>
+                </mat-form-field>
+              </div>
+      
+              <div class="actions">
+                <button (click)="onReset()" mat-button type="button">Clear</button>
+                <button [disabled]="!taskForm.valid" mat-raised-button color="primary" type="submit">Add</button>
+              </div>
+        </form>
       </div>
     </mat-expansion-panel>
   </div>
