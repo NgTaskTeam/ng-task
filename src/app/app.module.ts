@@ -11,6 +11,7 @@ import { WorkspaceComponent } from './workspace/workspace.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { MeetingsListComponent } from './meetings-list/meetings-list.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MeetingsListComponent } from './meetings-list/meetings-list.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    NgxMaterialTimepickerModule.forRoot(),
     SortablejsModule.forRoot({
       animation: 150,
     }),

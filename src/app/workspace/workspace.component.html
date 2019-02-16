@@ -7,27 +7,86 @@
 </div> -->
 <div class="workspace">
   <div class="operation-section">
-    <mat-card >
-        <p class="menu-item selected-menu-item"> <span> <i class="fa fa-th-large menu-icon menu-icon-selected" aria-hidden="true"></i></span> All</p>
-        <p class="menu-item"> <span ><i class="fa fa-calendar menu-icon" aria-hidden="true"></i></span> Today</p>
-        <p class="menu-item"> <span> <i class="fa fa-check-square menu-icon" aria-hidden="true"></i> </span> Complete</p>
-        <p class="menu-item"> <span> <i class="fa fa-minus-square menu-icon" aria-hidden="true"></i></span> Incomplete</p>
+    <mat-card>
+      <p class="menu-item selected-menu-item">
+        <span>
+          <i class="fa fa-th-large menu-icon menu-icon-selected" aria-hidden="true"></i>
+        </span> All</p>
+      <p class="menu-item">
+        <span>
+          <i class="fa fa-calendar menu-icon" aria-hidden="true"></i>
+        </span> Today</p>
+      <p class="menu-item">
+        <span>
+          <i class="fa fa-check-square menu-icon" aria-hidden="true"></i>
+        </span> Complete</p>
+      <p class="menu-item">
+        <span>
+          <i class="fa fa-minus-square menu-icon" aria-hidden="true"></i>
+        </span> Incomplete</p>
     </mat-card>
-    <mat-card >
-        <p class="menu-item menu-margin"> <span class="circle-work">&#9675;</span> Work</p>
-        <p class="menu-item menu-margin"> <span class="circle-buisness">&#9675;</span> Buisness</p>
-        <p class="menu-item menu-margin"> <span class="circle-personal">&#9675;</span> Personal</p>
+    <mat-card>
+      <p class="menu-item menu-margin">
+        <span class="circle-work">&#9675;</span> Work</p>
+      <p class="menu-item menu-margin">
+        <span class="circle-buisness">&#9675;</span> Buisness</p>
+      <p class="menu-item menu-margin">
+        <span class="circle-personal">&#9675;</span> Personal</p>
     </mat-card>
-   
+
   </div>
   <div class="task-section">
     <app-taskboard [days]="days"></app-taskboard>
   </div>
   <div class="view-section">
-    <app-meetings
-      [scheduled]="meetings.scheduled"
-      [rescheduled]="meetings.rescheduled"
-      [cancelled]="meetings.cancelled"
-      ></app-meetings>
+    <app-meetings [scheduled]="meetings.scheduled" [rescheduled]="meetings.rescheduled" [cancelled]="meetings.cancelled"></app-meetings>
+  </div>
+  <div class="add-task">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Add Task
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="example-container">
+        <div class="half-input">
+          <mat-form-field>
+            <input readonly matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="second-input">
+            <input matInput [ngxTimepicker]="time" placeholder="Time">
+            <ngx-material-timepicker #time></ngx-material-timepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="half-input">
+          <mat-form-field>
+            <input matInput placeholder="Title">
+          </mat-form-field>
+
+          <mat-form-field class="second-input">
+            <mat-select placeholder="Type">
+              <mat-option value="W">Work</mat-option>
+              <mat-option value="B">Buisness</mat-option>
+              <mat-option value="P">Personal</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <textarea rows="4" matInput placeholder="Content"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="actions">
+            <button mat-button>Clear</button>
+            <button mat-raised-button color="primary">Add</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
   </div>
 </div>
