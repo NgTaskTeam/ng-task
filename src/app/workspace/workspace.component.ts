@@ -25,7 +25,6 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   days = [];
   meetings = {};
   filters = {
-    todayOnly: false,
     isFinished: null,
     type: null,
   };
@@ -54,9 +53,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   chechSelectedFilter(filter: string) {
     switch (filter) {
       case 'all':
-        return this.filters.todayOnly === false;
-      case 'today':
-        return this.filters.todayOnly === true;
+        return this.filters.isFinished === null;
       case 'finished':
         return this.filters.isFinished === true;
       case 'not-finished':
@@ -79,13 +76,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
       case 'all':
         this.filters = {
           ...this.filters,
-          todayOnly: false,
-        };
-        break;
-      case 'today':
-        this.filters = {
-          ...this.filters,
-          todayOnly: this.filters.todayOnly === true ? false : true
+          isFinished: null,
         };
         break;
       case 'finished':
@@ -109,19 +100,19 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
       case 'work':
         this.filters = {
           ...this.filters,
-          type: 'W',
+          type: this.filters.type === 'W' ? null : 'W',
         };
         break;
       case 'buisness':
         this.filters = {
           ...this.filters,
-          type: 'B',
+          type: this.filters.type === 'B' ? null : 'B',
         };
         break;
       case 'personal':
         this.filters = {
           ...this.filters,
-          type: 'P',
+          type: this.filters.type === 'P' ? null : 'P',
         };
         break;
       default:

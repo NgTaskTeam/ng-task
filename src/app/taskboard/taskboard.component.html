@@ -3,7 +3,7 @@
     <p class="sort-card date-content"><span class="day-label">{{ getLabel(day.date) }} <span class="day-separator" *ngIf="getLabel(day.date) !== null"> | </span></span>{{day.date | date:'d MMMM yyyy'}}</p>
     <div>
         <div class="taskboard" [sortablejs]="day.tasks" [sortablejsOptions]="normalOptions">
-            <mat-card *ngFor="let task of day.tasks; let index = index" [ngClass]="{'selected-mat-card': task.title === selected}">
+            <mat-card *ngFor="let task of day.tasks; let index = index" [ngClass]="{'selected-mat-card': task.title === selected, 'hide-item': hideItemsByFilters(task)}">
                 <div class="round-frame" [ngClass]="{'work-task': task.type === 'W', 'buisness-task': task.type === 'B', 'personal-task': task.type === 'P'}">
                   <span class="task-type">{{task.type}}</span>
                 </div>

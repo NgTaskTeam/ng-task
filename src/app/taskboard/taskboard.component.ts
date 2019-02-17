@@ -13,6 +13,7 @@ export class TaskboardComponent implements OnInit {
     group: 'tasks'
   };
   @Input() days: any;
+  @Input() filters: any;
 
   constructor() { }
 
@@ -27,6 +28,20 @@ export class TaskboardComponent implements OnInit {
     }
 
     return null;
+  }
+
+  hideItemsByFilters(task: any) {
+    if (this.filters.isFinished !== null && this.filters.type !== null) {
+      return task.isFinished !== this.filters.isFinished || task.type !== this.filters.type;
+    }
+
+    if (this.filters.isFinished !== null) {
+      return task.isFinished !== this.filters.isFinished;
+    }
+
+    if (this.filters.type !== null) {
+      return task.type !== this.filters.type;
+    }
   }
 
 }

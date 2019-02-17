@@ -11,11 +11,7 @@
       <p (click)="changeFilters('all')" class="menu-item" [ngClass]="{'selected-menu-item': chechSelectedFilter('all')}">
         <span>
           <i class="fa fa-th-large menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('all')}"></i>
-        </span> All days</p>
-      <p (click)="changeFilters('today')" class="menu-item" [ngClass]="{'selected-menu-item': chechSelectedFilter('today')}">
-        <span>
-          <i class="fa fa-calendar menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('today')}"></i>
-        </span> Today</p>
+        </span> All</p>
       <p (click)="changeFilters('finished')" class="menu-item" [ngClass]="{'selected-menu-item': chechSelectedFilter('finished')}">
         <span>
           <i class="fa fa-check-square menu-icon" aria-hidden="true" [ngClass]="{'menu-icon-selected': chechSelectedFilter('finished')}"></i>
@@ -38,7 +34,7 @@
 
   </div>
   <div class="task-section">
-    <app-taskboard [days]="days"></app-taskboard>
+    <app-taskboard [days]="days" [filters]="filters"></app-taskboard>
   </div>
   <div class="view-section">
     <app-meetings [scheduled]="meetings.scheduled" [rescheduled]="meetings.rescheduled" [cancelled]="meetings.cancelled"></app-meetings>
