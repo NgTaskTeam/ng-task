@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SortablejsOptions } from 'angular-sortablejs/dist';
 import * as moment from 'moment-timezone';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'app-taskboard',
@@ -9,13 +10,10 @@ import * as moment from 'moment-timezone';
 })
 export class TaskboardComponent implements OnInit {
   selected = 'Design Catchup';
-  normalOptions: SortablejsOptions = {
-    group: 'tasks'
-  };
   @Input() days: any;
   @Input() filters: any;
 
-  constructor() { }
+  constructor(private dataServiceService: DataServiceService) { }
 
   ngOnInit() {
   }
@@ -30,18 +28,16 @@ export class TaskboardComponent implements OnInit {
     return null;
   }
 
-  hideItemsByFilters(task: any) {
-    if (this.filters.isFinished !== null && this.filters.type !== null) {
-      return task.isFinished !== this.filters.isFinished || task.type !== this.filters.type;
-    }
+  getOptions() {
+    const normalOptions: SortablejsOptions = {
+      group: 'tasks',
+      onUpdate: (event: any) => {
+        this.dataServiceService.persistData(this.filters, this.days);
+      },
+      disabled: this.filters.type !== null || this.filters.isFinished !== null,
+    };
 
-    if (this.filters.isFinished !== null) {
-      return task.isFinished !== this.filters.isFinished;
-    }
-
-    if (this.filters.type !== null) {
-      return task.type !== this.filters.type;
-    }
+    return normalOptions;
   }
 
 }

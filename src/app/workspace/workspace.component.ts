@@ -14,6 +14,7 @@ import { FormBuilder } from '@angular/forms';
 export class WorkspaceComponent implements OnInit, OnDestroy {
   private taskSubscription: Subscription = new Subscription();
   private meetingsSubscription: Subscription = new Subscription();
+  private filterSubscription: Subscription = new Subscription();
 
   taskForm = this.fb.group({
     date: [''],
@@ -24,10 +25,13 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   });
   days = [];
   meetings = {};
-  filters = {
-    isFinished: null,
-    type: null,
-  };
+  filters: {
+    isFinished: any,
+    type: any
+  } = {
+      isFinished: null,
+      type: null,
+    };
 
   constructor(private dataServiceService: DataServiceService, private fb: FormBuilder) { }
 
@@ -43,11 +47,16 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
         cancelled: meetings.cancelled.filter(t => moment(t.date).format('YYYY-MM-DD') >= moment().format('YYYY-MM-DD')),
       };
     });
+
+    this.filterSubscription = this.dataServiceService.getFilters().subscribe(f => {
+      this.filters = f;
+    });
   }
 
   ngOnDestroy() {
     this.taskSubscription.unsubscribe();
     this.meetingsSubscription.unsubscribe();
+    this.filterSubscription.unsubscribe();
   }
 
   chechSelectedFilter(filter: string) {
@@ -74,46 +83,46 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   changeFilters(filter: string) {
     switch (filter) {
       case 'all':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           isFinished: null,
-        };
+        });
         break;
       case 'finished':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           isFinished: this.filters.isFinished === true ? null : true,
-        };
+        });
         break;
       case 'not-finished':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           isFinished: this.filters.isFinished === false ? null : false,
-        };
+        });
         break;
       case 'all-type':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           type: null,
-        };
+        });
         break;
       case 'work':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           type: this.filters.type === 'W' ? null : 'W',
-        };
+        });
         break;
       case 'buisness':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           type: this.filters.type === 'B' ? null : 'B',
-        };
+        });
         break;
       case 'personal':
-        this.filters = {
+        this.dataServiceService.setFilters({
           ...this.filters,
           type: this.filters.type === 'P' ? null : 'P',
-        };
+        });
         break;
       default:
         break;
